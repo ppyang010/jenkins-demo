@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.movie.dao.AccessLogMapper">
+  <resultMap id="BaseResultMap" type="org.movie.model.AccessLog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="portaltype" jdbcType="INTEGER" property="portaltype" />
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="livetime" jdbcType="TIMESTAMP" property="livetime" />
+    <result column="sessionid" jdbcType="VARCHAR" property="sessionid" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="agent" jdbcType="VARCHAR" property="agent" />
+    <result column="uri" jdbcType="VARCHAR" property="uri" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, portaltype, accesstime, livetime, sessionid, ip, agent, uri
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from access_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from access_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.movie.model.AccessLog">
+    insert into access_log (id, portaltype, accesstime, 
+      livetime, sessionid, ip, 
+      agent, uri)
+    values (#{id,jdbcType=INTEGER}, #{portaltype,jdbcType=INTEGER}, #{accesstime,jdbcType=TIMESTAMP}, 
+      #{livetime,jdbcType=TIMESTAMP}, #{sessionid,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{agent,jdbcType=VARCHAR}, #{uri,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.movie.model.AccessLog">
+    insert into access_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="portaltype != null">
+        portaltype,
+      </if>
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="livetime != null">
+        livetime,
+      </if>
+      <if test="sessionid != null">
+        sessionid,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="agent != null">
+        agent,
+      </if>
+      <if test="uri != null">
+        uri,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="portaltype != null">
+        #{portaltype,jdbcType=INTEGER},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="livetime != null">
+        #{livetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sessionid != null">
+        #{sessionid,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null">
+        #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="uri != null">
+        #{uri,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.movie.model.AccessLog">
+    update access_log
+    <set>
+      <if test="portaltype != null">
+        portaltype = #{portaltype,jdbcType=INTEGER},
+      </if>
+      <if test="accesstime != null">
+        accesstime = #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="livetime != null">
+        livetime = #{livetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sessionid != null">
+        sessionid = #{sessionid,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null">
+        agent = #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="uri != null">
+        uri = #{uri,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.movie.model.AccessLog">
+    update access_log
+    set portaltype = #{portaltype,jdbcType=INTEGER},
+      accesstime = #{accesstime,jdbcType=TIMESTAMP},
+      livetime = #{livetime,jdbcType=TIMESTAMP},
+      sessionid = #{sessionid,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      agent = #{agent,jdbcType=VARCHAR},
+      uri = #{uri,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

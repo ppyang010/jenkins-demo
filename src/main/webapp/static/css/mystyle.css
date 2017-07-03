@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+
+.top-tips-span{
+	color: #000;
+    font-size: 0.9em;
+    font-weight: 400;
+    margin-right: 16px;
+    margin-top: 9px;
+    display: inline;
+    float: left;
+}
+.top-tips-a{
+	color: #000 !important; 
+  	font-size: 1.0em;
+    font-weight: 400;
+    margin-right: 16px;
+    margin-top: 9px;
+    display: inline;
+    float: left;
+}
+.list-of-cities{
+	border: 1px solid #aeaeae;
+    color: #4d4d4d;
+    font-family: "Open Sans",sans-serif;
+    font-size: 14px;
+    padding: 8px;
+    width: 33%;
+    float:left;
+}
+.left-img{
+	display:inline;
+}
+.left-img p{
+	display:inline;
+}
+.left-img img{
+	display:inline;
+}
+.pager-a a{
+	color:#000000;
+}
+
+
