@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.movie.dao.IUserDao;
 import org.movie.model.User;
+import org.movie.service.impl.NewsService;
 import org.springframework.stereotype.Repository;
 @Repository
 public class UserDao extends BaseDao implements IUserDao  {
